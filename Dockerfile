@@ -2,7 +2,7 @@
 # container
 # @see https://hub.docker.com/repository/docker/cnizzardini/php-fpm-alpine
 # @see https://github.com/cnizzardini/php-fpm-alpine/tree/php-7.4
-FROM cnizzardini/php-fpm-alpine:7.4-latest AS cakephp_php
+FROM cnizzardini/php-fpm-alpine:8.0-latest AS cakephp_php
 
 ARG ENV=prod
 ARG UID=1000
@@ -20,6 +20,12 @@ RUN if [[ "$ENV" != "prod" ]]; then \
     && docker-php-ext-enable xdebug \
     && apk del -f .php-deps; \
 fi
+
+RUN apk add --update --no-cache \
+    -X http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    nodejs \
+    npm \
+    openssh-client
 
 #
 # application
