@@ -1,4 +1,4 @@
-SHELL 			:= /bin/bash # set shell based on host os, use /bin/zsh for mac
+SHELL 			:= /bin/zsh # set shell based on host os, use /bin/zsh for mac
 .DEFAULT_GOAL   := help
 
 #
@@ -161,13 +161,13 @@ web.sh:
 xdebug.on:
 	@printf $(XDEBUG_ICO) && printf "$(INFO)start xdebug $(S)"
 	@docker container stop $(PHP) > /dev/null
-	@sed -i '/xdebug.mode/c\xdebug.mode=coverage,debug' $(PHP_DEV_PATH)/conf.d/20-overrides.ini
+	@gsed -i '/xdebug.mode/c\xdebug.mode=coverage,debug' $(PHP_DEV_PATH)/conf.d/20-overrides.ini
 	@docker container start $(PHP) > /dev/null
 	@printf "$(GOOD) xdebug on $(E)"
 xdebug.off:
 	@printf $(XDEBUG_ICO) && printf "$(INFO)stop xdebug $(S)"
 	@docker container stop $(PHP) > /dev/null
-	@sed -i '/xdebug.mode/c\xdebug.mode=off' $(PHP_DEV_PATH)/conf.d/20-overrides.ini
+	@gsed -i '/xdebug.mode/c\xdebug.mode=off' $(PHP_DEV_PATH)/conf.d/20-overrides.ini
 	@docker container start $(PHP) > /dev/null
 	@printf "$(WARN) xdebug off $(E)"
 
