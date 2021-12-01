@@ -12,9 +12,6 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $beschreibung
  * @property string $anleitung
- * @property int $mengen_id
- *
- * @property \App\Model\Entity\Mengen $mengen
  */
 class Rezepte extends Entity
 {
@@ -31,7 +28,5 @@ class Rezepte extends Entity
         'name' => true,
         'beschreibung' => true,
         'anleitung' => true,
-        'mengen_id' => true,
-        'mengen' => true,
     ];
 }

@@ -51,7 +51,7 @@ class ZutatenTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('id')
+            ->nonNegativeInteger('id')
             ->allowEmptyString('id', null, 'create');
 
         $validator
@@ -62,26 +62,29 @@ class ZutatenTable extends Table
 
         $validator
             ->decimal('preis')
-            ->requirePresence('preis', 'create')
+            ->greaterThanOrEqual('preis', 0)
             ->notEmptyString('preis');
 
         $validator
             ->decimal('menge')
-            ->allowEmptyString('menge');
+            ->greaterThanOrEqual('menge', 0)
+            ->notEmptyString('menge');
 
         $validator
             ->scalar('einheit')
-            ->maxLength('einheit', 20)
+            ->maxLength('einheit', 50)
             ->requirePresence('einheit', 'create')
             ->notEmptyString('einheit');
 
         $validator
             ->decimal('alkoholgehalt')
+            ->greaterThanOrEqual('alkoholgehalt', 0)
             ->notEmptyString('alkoholgehalt');
 
         $validator
             ->scalar('beschreibung')
-            ->maxLength('beschreibung', 255)
+            ->maxLength('beschreibung', 1000)
+            ->requirePresence('beschreibung', 'create')
             ->notEmptyString('beschreibung');
 
         return $validator;

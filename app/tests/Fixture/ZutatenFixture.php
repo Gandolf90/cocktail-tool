@@ -29,7 +29,7 @@ class ZutatenFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'preis' => 1.5,
                 'menge' => 1.5,
-                'einheit' => '',
+                'einheit' => 'Lorem ipsum dolor sit amet',
                 'alkoholgehalt' => 1.5,
                 'beschreibung' => 'Lorem ipsum dolor sit amet',
             ],

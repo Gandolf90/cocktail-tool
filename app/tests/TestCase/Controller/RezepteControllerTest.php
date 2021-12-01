@@ -23,7 +23,6 @@ class RezepteControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Rezepte',
-        'app.Mengen',
     ];
 
     /**

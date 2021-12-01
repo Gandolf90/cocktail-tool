@@ -18,9 +18,6 @@ class RezepteController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Mengen'],
-        ];
         $rezepte = $this->paginate($this->Rezepte);
 
         $this->set(compact('rezepte'));
@@ -36,7 +33,7 @@ class RezepteController extends AppController
     public function view($id = null)
     {
         $rezepte = $this->Rezepte->get($id, [
-            'contain' => ['Mengen'],
+            'contain' => [],
         ]);
 
         $this->set(compact('rezepte'));
@@ -59,8 +56,7 @@ class RezepteController extends AppController
             }
             $this->Flash->error(__('The rezepte could not be saved. Please, try again.'));
         }
-        $mengen = $this->Rezepte->Mengen->find('list', ['limit' => 200])->all();
-        $this->set(compact('rezepte', 'mengen'));
+        $this->set(compact('rezepte'));
     }
 
     /**
@@ -84,8 +80,7 @@ class RezepteController extends AppController
             }
             $this->Flash->error(__('The rezepte could not be saved. Please, try again.'));
         }
-        $mengen = $this->Rezepte->Mengen->find('list', ['limit' => 200])->all();
-        $this->set(compact('rezepte', 'mengen'));
+        $this->set(compact('rezepte'));
     }
 
     /**

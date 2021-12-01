@@ -29,7 +29,6 @@ class RezepteFixture extends TestFixture
                 'name' => 'Lorem ipsum dolor sit amet',
                 'beschreibung' => 'Lorem ipsum dolor sit amet',
                 'anleitung' => 'Lorem ipsum dolor sit amet',
-                'mengen_id' => 1,
             ],
         ];
         parent::init();

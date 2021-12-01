@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property string $preis
- * @property string|null $menge
+ * @property string $menge
  * @property string $einheit
  * @property string $alkoholgehalt
  * @property string $beschreibung

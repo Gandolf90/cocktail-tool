@@ -18,7 +18,6 @@
         <th scope="col"><?= $this->Paginator->sort('name') ?></th>
         <th scope="col"><?= $this->Paginator->sort('beschreibung') ?></th>
         <th scope="col"><?= $this->Paginator->sort('anleitung') ?></th>
-        <th scope="col"><?= $this->Paginator->sort('mengen_id') ?></th>
         <th scope="col" class="actions"><?= __('Actions') ?></th>
     </tr>
     </thead>
@@ -29,7 +28,6 @@
             <td><?= h($rezepte->name) ?></td>
             <td><?= h($rezepte->beschreibung) ?></td>
             <td><?= h($rezepte->anleitung) ?></td>
-            <td><?= $rezepte->has('mengen') ? $this->Html->link($rezepte->mengen->id, ['controller' => 'Mengen', 'action' => 'view', $rezepte->mengen->id]) : '' ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $rezepte->id], ['title' => __('View'), 'class' => 'btn btn-secondary']) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rezepte->id], ['title' => __('Edit'), 'class' => 'btn btn-secondary']) ?>

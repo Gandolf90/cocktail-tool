@@ -11,8 +11,6 @@ use Cake\Validation\Validator;
 /**
  * Rezepte Model
  *
- * @property \App\Model\Table\MengenTable&\Cake\ORM\Association\BelongsTo $Mengen
- *
  * @method \App\Model\Entity\Rezepte newEmptyEntity()
  * @method \App\Model\Entity\Rezepte newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Rezepte[] newEntities(array $data, array $options = [])
@@ -42,11 +40,6 @@ class RezepteTable extends Table
         $this->setTable('rezepte');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
-
-        $this->belongsTo('Mengen', [
-            'foreignKey' => 'mengen_id',
-            'joinType' => 'INNER',
-        ]);
     }
 
     /**
@@ -58,7 +51,7 @@ class RezepteTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('id')
+            ->nonNegativeInteger('id')
             ->allowEmptyString('id', null, 'create');
 
         $validator
@@ -80,19 +73,5 @@ class RezepteTable extends Table
             ->notEmptyString('anleitung');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
-        $rules->add($rules->existsIn('mengen_id', 'Mengen'), ['errorField' => 'mengen_id']);
-
-        return $rules;
     }
 }

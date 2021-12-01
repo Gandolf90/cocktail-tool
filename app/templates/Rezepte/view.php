@@ -31,10 +31,6 @@
                 <td><?= h($rezepte->anleitung) ?></td>
             </tr>
             <tr>
-                <th scope="row"><?= __('Mengen') ?></th>
-                <td><?= $rezepte->has('mengen') ? $this->Html->link($rezepte->mengen->id, ['controller' => 'Mengen', 'action' => 'view', $rezepte->mengen->id]) : '' ?></td>
-            </tr>
-            <tr>
                 <th scope="row"><?= __('Id') ?></th>
                 <td><?= $this->Number->format($rezepte->id) ?></td>
             </tr>

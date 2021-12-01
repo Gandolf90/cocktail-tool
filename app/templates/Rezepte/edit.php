@@ -2,7 +2,6 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Rezepte $rezepte
- * @var \App\Model\Entity\Mengen[]|\Cake\Collection\CollectionInterface $mengen
  */
 ?>
 <?php $this->extend('/layout/TwitterBootstrap/dashboard'); ?>
@@ -21,7 +20,6 @@
             echo $this->Form->control('name');
             echo $this->Form->control('beschreibung');
             echo $this->Form->control('anleitung');
-            echo $this->Form->control('mengen_id', ['options' => $mengen]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
