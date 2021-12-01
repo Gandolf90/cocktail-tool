@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Zutaten Model
  *
+ * @property \App\Model\Table\RezepteTable&\Cake\ORM\Association\BelongsToMany $Rezepte
+ *
  * @method \App\Model\Entity\Zutaten newEmptyEntity()
  * @method \App\Model\Entity\Zutaten newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Zutaten[] newEntities(array $data, array $options = [])
@@ -40,6 +42,12 @@ class ZutatenTable extends Table
         $this->setTable('zutaten');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+
+        $this->belongsToMany('Rezepte', [
+            'foreignKey' => 'zutaten_id',
+            'targetForeignKey' => 'rezepte_id',
+            'joinTable' => 'rezepte_zutaten',
+        ]);
     }
 
     /**

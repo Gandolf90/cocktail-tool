@@ -25,6 +25,7 @@ class RezepteTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Rezepte',
+        'app.Zutaten',
     ];
 
     /**

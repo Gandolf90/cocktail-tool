@@ -21,6 +21,12 @@ RUN if [[ "$ENV" != "prod" ]]; then \
     && apk del -f .php-deps; \
 fi
 
+RUN apk add --update --no-cache \
+    -X http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    nodejs \
+    npm \
+    openssh-client
+
 #
 # application
 #

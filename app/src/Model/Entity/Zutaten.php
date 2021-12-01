@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property string $einheit
  * @property string $alkoholgehalt
  * @property string $beschreibung
+ *
+ * @property \App\Model\Entity\Rezepte[] $rezepte
  */
 class Zutaten extends Entity
 {
@@ -34,5 +36,6 @@ class Zutaten extends Entity
         'einheit' => true,
         'alkoholgehalt' => true,
         'beschreibung' => true,
+        'rezepte' => true,
     ];
 }

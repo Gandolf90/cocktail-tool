@@ -12,6 +12,8 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $beschreibung
  * @property string $anleitung
+ *
+ * @property \App\Model\Entity\Zutaten[] $zutaten
  */
 class Rezepte extends Entity
 {
@@ -28,5 +30,6 @@ class Rezepte extends Entity
         'name' => true,
         'beschreibung' => true,
         'anleitung' => true,
+        'zutaten' => true,
     ];
 }
