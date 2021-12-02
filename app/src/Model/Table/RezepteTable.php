@@ -44,8 +44,8 @@ class RezepteTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsToMany('Zutaten', [
-            'foreignKey' => 'rezepte_id',
-            'targetForeignKey' => 'zutaten_id',
+            'foreignKey' => 'rezept_id',
+            'targetForeignKey' => 'zutat_id',
             'joinTable' => 'rezepte_zutaten',
         ]);
     }
